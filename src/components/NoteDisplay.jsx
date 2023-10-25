@@ -7,7 +7,7 @@ const NoteDisplay = ({ title, content }) => {
   return (
     <div className='NoteDisplay'>
       
-        <h1>Title : {title}</h1>
+        <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
       
     </div>

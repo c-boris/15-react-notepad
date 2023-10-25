@@ -46,6 +46,17 @@ function MarkdownInput() {
     localStorage.setItem('blocNotes', JSON.stringify(updatedData));
   };
 
+  const handleDelete = () => {
+    if (selectedCardIndex !== null) {
+      const updatedData = [...data];
+      updatedData.splice(selectedCardIndex, 1);
+      setData(updatedData);
+      localStorage.setItem('blocNotes', JSON.stringify(updatedData));
+      setSelectedCardIndex(null);
+      setValues({ title: '', content: '' });
+    }
+  };
+
   return (
     <Container fluid>
       <Row>
@@ -55,18 +66,19 @@ function MarkdownInput() {
         <Col md={10}>
 
           <Row style={{ height: '50%' }}>
-            <div className="display" style={{ marginLeft: '70px', marginTop: '20px' }}>
+            <div className="display" >
               <NoteDisplay title={values.title} content={values.content} />
             </div>
           </Row>
 
           <Row className="align-items-center justify-content-center" style={{ height: '50%' }}>
-            <input style={{ width: '90%', height: '10%' }} value={values.title} onChange={handleChange('title')} />
-            <textarea style={{ width: '90%', height: '70%' }} value={values.content} onChange={handleChange('content')} />
-            <div className="col-11">
-              <button type='submit' className='btn-custom' onClick={handleSave}>Sauvegarder</button>
-            </div>
-          </Row>
+  <input style={{ width: '90%', height: '10%' }} value={values.title} onChange={handleChange('title')} />
+  <textarea style={{ width: '90%', height: '70%' }} value={values.content} onChange={handleChange('content')} />
+  <div className="col-11">
+    <button type='submit' className='btn-custom' onClick={handleSave}>Save</button>
+    <button type='submit' className='btn-custom' onClick={handleDelete}>Delete</button> {/* Nouveau bouton "Delete" */}
+  </div>
+</Row>
 
         </Col>
       </Row>
