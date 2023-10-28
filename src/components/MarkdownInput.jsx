@@ -76,7 +76,7 @@ function MarkdownInput() {
   <textarea style={{ width: '90%', height: '70%' }} value={values.content} onChange={handleChange('content')} />
   <div className="col-11">
     <button type='submit' className='btn-custom' onClick={handleSave}>Save</button>
-    <button type='submit' className='btn-custom' onClick={handleDelete}>Delete</button> {/* Nouveau bouton "Delete" */}
+    <button type='submit' className='btn-custom' onClick={handleDelete}>Delete</button>
   </div>
 </Row>
 
